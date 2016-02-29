@@ -1,5 +1,11 @@
 <!doctype html>
-<html class="theme-next   use-motion ">
+
+
+
+  
+
+
+<html class="theme-next muse use-motion">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
@@ -32,7 +38,7 @@
 
 <link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
 
-<link href="/css/main.css?v=0.4.5.2" rel="stylesheet" type="text/css" />
+<link href="/css/main.css?v=0.5.0" rel="stylesheet" type="text/css" />
 
 
   <meta name="keywords" content="Hexo, NexT" />
@@ -44,7 +50,7 @@
 
 
 
-  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.2" />
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=0.5.0" />
 
 
 
@@ -64,10 +70,16 @@
 
 
 <script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
   var CONFIG = {
-    scheme: 'Pisces',
-    sidebar: 'always',
-    motion: true
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
   };
 </script>
 
@@ -76,15 +88,6 @@
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
-  <!--[if lte IE 8]>
-  <div style=' clear: both; height: 59px; padding:0 0 0 15px; position: relative;margin:0 auto;'>
-    <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
-      <img src="http://7u2nvr.com1.z0.glb.clouddn.com/picouterie.jpg" border="0" height="42" width="820"
-           alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today or use other browser ,like chrome firefox safari."
-           style='margin-left:auto;margin-right:auto;display: block;'/>
-    </a>
-  </div>
-<![endif]-->
   
 
 
@@ -92,9 +95,16 @@
 
 
 
-  <div class="container one-column 
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left 
    page-home 
-">
+ ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -136,16 +146,6 @@
         </li>
       
         
-        <li class="menu-item menu-item-categories">
-          <a href="/categories" rel="section">
-            
-              <i class="menu-item-icon fa fa-th fa-fw"></i> <br />
-            
-            分类
-          </a>
-        </li>
-      
-        
         <li class="menu-item menu-item-archives">
           <a href="/archives" rel="section">
             
@@ -168,6 +168,7 @@
 
       
       
+      
     </ul>
   
 
@@ -179,8 +180,9 @@
 
     <main id="main" class="main">
       <div class="main-inner">
-        <div id="content" class="content">
-          
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
   <section id="posts" class="posts-expand">
 
     
@@ -229,7 +231,10 @@
 
         <div class="post-meta">
           <span class="post-time">
-            发表于
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
             <time itemprop="dateCreated" datetime="2016-02-29T21:48:58+08:00" content="2016-02-29">
               2016-02-29
             </time>
@@ -237,7 +242,11 @@
 
           
             <span class="post-category" >
-              &nbsp; | &nbsp; 分类于
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
                   <a href="/categories/算法/" itemprop="url" rel="index">
@@ -254,39 +263,27 @@
 
           
             
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/02/29/dp/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/02/29/dp/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
           
 
           
 
+          
+          
         </div>
       </header>
     
 
 
-    <div class="post-body">
+    <div class="post-body" itemprop="articleBody">
 
       
       
 
       
         
-          <span itemprop="articleBody">
+          
             
-            
-            
-          </span>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/02/29/dp/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
+          
         
       
     </div>
@@ -336,7 +333,10 @@
 
         <div class="post-meta">
           <span class="post-time">
-            发表于
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
             <time itemprop="dateCreated" datetime="2016-02-29T16:39:11+08:00" content="2016-02-29">
               2016-02-29
             </time>
@@ -344,7 +344,11 @@
 
           
             <span class="post-category" >
-              &nbsp; | &nbsp; 分类于
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
                   <a href="/categories/LeetCode/" itemprop="url" rel="index">
@@ -361,40 +365,29 @@
 
           
             
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/02/29/string-to-integer/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/02/29/string-to-integer/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
           
 
           
 
+          
+          
         </div>
       </header>
     
 
 
-    <div class="post-body">
+    <div class="post-body" itemprop="articleBody">
 
       
       
 
       
         
-          <span itemprop="articleBody">
-            
-            Implement atoi to convert a string to an integer.
-注意考虑以下情况:“123” : 123“-123” : -123“00123/2” : 123“-123/2”; : -123“-  123/2” :0“-+123/2” :0“1052254545
-            ...
-          </span>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/02/29/string-to-integer/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
+          
+            <p>Implement atoi to convert a string to an integer.</p>
+<p>注意考虑以下情况:<br>“123” : 123<br>“-123” : -123<br>“00123/2” : 123<br>“-123/2”; : -123<br>“-  123/2” :0<br>“-+123/2” :0<br>“10522545459” : 2147483647 越界<br>“2147483647”; : 2147483647 刚好不越界<br>“-21474836480”; : -2147483648;越界<br>“-2147483648”; : -2147483648 刚好不越界<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">atoi</span><span class="params">(<span class="built_in">string</span> str)</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> index=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> length=str.length();</span><br><span class="line">    <span class="keyword">int</span> num=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">bool</span> IsNegative=<span class="literal">false</span>;</span><br><span class="line">    <span class="keyword">if</span>(length==<span class="number">0</span>)</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">while</span>(index&lt;length&amp;&amp;str[index]==<span class="string">' '</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            index++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(str[index]==<span class="string">'-'</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            index++;</span><br><span class="line">            IsNegative=<span class="literal">true</span>;</span><br><span class="line">            <span class="keyword">if</span>(index&gt;=length)</span><br><span class="line">                <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span>  <span class="keyword">if</span>(str[index]==<span class="string">'+'</span>)</span><br><span class="line">            index++;</span><br><span class="line">        <span class="keyword">for</span>(; index&lt;length; index++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(str[index]&lt;<span class="string">'0'</span>||str[index]&gt;<span class="string">'9'</span>)</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">int</span> temp=str[index]-<span class="string">'0'</span>;</span><br><span class="line">                <span class="comment">//cout&lt;&lt;-(INT_MIN%10)&lt;&lt;endl;</span></span><br><span class="line">                <span class="comment">//判断越界,思想：在中间结果执行乘10操作之前，先与最大数除10相比，判断是否溢出。</span></span><br><span class="line">                <span class="keyword">if</span>(!IsNegative&amp;&amp;(num&gt;INT_MAX/<span class="number">10</span>||(num==INT_MAX/<span class="number">10</span>&amp;&amp;temp&gt;INT_MAX%<span class="number">10</span>)))</span><br><span class="line">                    <span class="keyword">return</span> INT_MAX;</span><br><span class="line">                <span class="keyword">else</span> <span class="keyword">if</span>(IsNegative&amp;&amp;(num&gt;-(INT_MIN/<span class="number">10</span>)||(num==-(INT_MIN/<span class="number">10</span>)&amp;&amp;temp&gt;-(INT_MIN%<span class="number">10</span>))))</span><br><span class="line">                    <span class="keyword">return</span> INT_MIN;</span><br><span class="line">                <span class="keyword">else</span></span><br><span class="line">                    num=num*<span class="number">10</span>+temp;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(IsNegative)</span><br><span class="line">            num=-num;</span><br><span class="line">        <span class="keyword">return</span> num;</span><br><span class="line">    &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure></p>
+
+          
         
       
     </div>
@@ -444,7 +437,10 @@
 
         <div class="post-meta">
           <span class="post-time">
-            发表于
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
             <time itemprop="dateCreated" datetime="2016-01-09T19:44:42+08:00" content="2016-01-09">
               2016-01-09
             </time>
@@ -452,7 +448,11 @@
 
           
             <span class="post-category" >
-              &nbsp; | &nbsp; 分类于
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
                   <a href="/categories/日常/" itemprop="url" rel="index">
@@ -469,40 +469,31 @@
 
           
             
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/01/09/sublimeText2_licence/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/01/09/sublimeText2_licence/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
           
 
           
 
+          
+          
         </div>
       </header>
     
 
 
-    <div class="post-body">
+    <div class="post-body" itemprop="articleBody">
 
       
       
 
       
         
-          <span itemprop="articleBody">
-            
-            sublime Text2的破解码一枚.
-Andrew WeberSingle User LicenseEA7E-855605813A03DD 5E4AD9E6 6C0EEB94 BC99798F942194A6 02396E98 E62C9979 4BB979FE91424C9D A45400BF
-            ...
-          </span>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/01/09/sublimeText2_licence/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
+          
+            <p>sublime Text2的破解码一枚.</p>
+<p>Andrew Weber<br>Single User License<br>EA7E-855605<br>813A03DD 5E4AD9E6 6C0EEB94 BC99798F<br>942194A6 02396E98 E62C9979 4BB979FE<br>91424C9D A45400BF F6747D88 2FB88078<br>90F5CC94 1CDC92DC 8457107A F151657B<br>1D22E383 A997F016 42397640 33F41CFC<br>E1D0AE85 A0BBD039 0E9C8D55 E1B89D5D<br>5CDB7036 E56DE1C0 EFCC0840 650CD3A6<br>B98FC99C 8FAC73EE D2B95564 DF450523 </p>
+<p><img src="http://i4.tietuku.com/c3aa2b0780bf379a.png" alt="版本"></p>
+<p><a href="http://alxw4616.iteye.com/blog/1910127" target="_blank" rel="external">参考网站</a></p>
+
+          
         
       
     </div>
@@ -552,7 +543,10 @@ Andrew WeberSingle User LicenseEA7E-855605813A03DD 5E4AD9E6 6C0EEB94 BC99798F942
 
         <div class="post-meta">
           <span class="post-time">
-            发表于
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
             <time itemprop="dateCreated" datetime="2016-01-07T22:22:28+08:00" content="2016-01-07">
               2016-01-07
             </time>
@@ -560,7 +554,11 @@ Andrew WeberSingle User LicenseEA7E-855605813A03DD 5E4AD9E6 6C0EEB94 BC99798F942
 
           
             <span class="post-category" >
-              &nbsp; | &nbsp; 分类于
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
                   <a href="/categories/日常/" itemprop="url" rel="index">
@@ -577,42 +575,46 @@ Andrew WeberSingle User LicenseEA7E-855605813A03DD 5E4AD9E6 6C0EEB94 BC99798F942
 
           
             
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/01/07/Firt-blog/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/01/07/Firt-blog/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
           
 
           
 
+          
+          
         </div>
       </header>
     
 
 
-    <div class="post-body">
+    <div class="post-body" itemprop="articleBody">
 
       
       
 
       
         
-          <span itemprop="articleBody">
-            
-            一整了又整,终于好了.
-二1.分段: 两个回车2.换行: 两个回车+换行3.引用: 大于号4.列表: 星号,+,-,1.任选其一5.代码区块: 四个空格开头6.链接: [文字](链接地址)7.图片: 跟链接差不多前边价格感叹号8.强调: 一个星号斜体,两个是粗体
-三MarkDown语法.
-一级标题#
-            ...
-          </span>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/01/07/Firt-blog/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
+          
+            <h2 id="u4E00"><a href="#u4E00" class="headerlink" title="一"></a>一</h2><p>整了又整,终于好了.</p>
+<h2 id="u4E8C"><a href="#u4E8C" class="headerlink" title="二"></a>二</h2><p>1.<strong>分段</strong>: 两个回车<br>2.<strong>换行</strong>: 两个回车+换行<br>3.<strong>引用</strong>: 大于号<br>4.<strong>列表</strong>: 星号,+,-,1.任选其一<br>5.<strong>代码区块</strong>: 四个空格开头<br>6.<strong>链接</strong>: [文字](链接地址)<br>7.<strong>图片</strong>: 跟链接差不多前边价格感叹号<br>8.<strong>强调</strong>: 一个星号斜体,两个是粗体</p>
+<h2 id="u4E09"><a href="#u4E09" class="headerlink" title="三"></a>三</h2><p>MarkDown语法.</p>
+<p>一级标题#,相应的二级标题##</p>
+<blockquote>
+<p>高亮的代码用esc下的三个点</p>
+</blockquote>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(<span class="literal">true</span>)</span><br><span class="line">	<span class="built_in">cout</span>&lt;&lt;<span class="string">"hello world!"</span>&lt;&lt;endl;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>单*号是斜体,双*的是粗体</p>
+</blockquote>
+<p><a href="http://qiongxx.com/" target="_blank">我的博客</a></p>
+<p>图片格式</p>
+<blockquote>
+<p>![cmd-markdown-logo](<a href="https://www.zybuluo.com/static/img/logo.png" target="_blank" rel="external">https://www.zybuluo.com/static/img/logo.png</a>)</p>
+</blockquote>
+<p><img src="https://www.zybuluo.com/static/img/logo.png" alt="cmd-markdown-logo"></p>
+<p>测试Tex公式<br>$$$a<em>{1}&lt;a</em>{2}&lt;…&lt;a_{n}$$$</p>
+<p><a href="http://mohu.org/info/symbols/symbols.htm" target="_blank" rel="external">常用数学符号的 LaTeX 表示方法</a></p>
+
+          
         
       
     </div>
@@ -662,7 +664,10 @@ Andrew WeberSingle User LicenseEA7E-855605813A03DD 5E4AD9E6 6C0EEB94 BC99798F942
 
         <div class="post-meta">
           <span class="post-time">
-            发表于
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
             <time itemprop="dateCreated" datetime="2016-01-06T22:22:28+08:00" content="2016-01-06">
               2016-01-06
             </time>
@@ -670,7 +675,11 @@ Andrew WeberSingle User LicenseEA7E-855605813A03DD 5E4AD9E6 6C0EEB94 BC99798F942
 
           
             <span class="post-category" >
-              &nbsp; | &nbsp; 分类于
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
                   <a href="/categories/日常/" itemprop="url" rel="index">
@@ -687,39 +696,36 @@ Andrew WeberSingle User LicenseEA7E-855605813A03DD 5E4AD9E6 6C0EEB94 BC99798F942
 
           
             
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/01/06/hello-world/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/01/06/hello-world/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
           
 
           
 
+          
+          
         </div>
       </header>
     
 
 
-    <div class="post-body">
+    <div class="post-body" itemprop="articleBody">
 
       
       
 
       
         
-          <span itemprop="articleBody">
-            
-            Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in 
-            ...
-          </span>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/01/06/hello-world/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
+          
+            <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
+<h2 id="Quick_Start"><a href="#Quick_Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create_a_new_post"><a href="#Create_a_new_post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
+<h3 id="Run_server"><a href="#Run_server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
+<h3 id="Generate_static_files"><a href="#Generate_static_files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
+<h3 id="Deploy_to_remote_sites"><a href="#Deploy_to_remote_sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
+
+          
         
       
     </div>
@@ -744,17 +750,15 @@ Andrew WeberSingle User LicenseEA7E-855605813A03DD 5E4AD9E6 6C0EEB94 BC99798F942
   
 
 
+          </div>
+          
+
+
+          
+
         </div>
-
         
-
-
-        
-
-      </div>
-
-      
-        
+          
   
   <div class="sidebar-toggle">
     <div class="sidebar-toggle-line-wrap">
@@ -773,10 +777,12 @@ Andrew WeberSingle User LicenseEA7E-855605813A03DD 5E4AD9E6 6C0EEB94 BC99798F942
 
       <section class="site-overview sidebar-panel  sidebar-panel-active ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-          <img class="site-author-image" src="/images/tou.jpg" alt="dqiong" itemprop="image"/>
+          <img class="site-author-image" itemprop="image"
+               src="/images/tou.jpg"
+               alt="dqiong" />
           <p class="site-author-name" itemprop="name">dqiong</p>
+          <p class="site-description motion-element" itemprop="description">无聊的时候多写写!</p>
         </div>
-        <p class="site-description motion-element" itemprop="description">无聊的时候多写写!</p>
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
@@ -784,20 +790,24 @@ Andrew WeberSingle User LicenseEA7E-855605813A03DD 5E4AD9E6 6C0EEB94 BC99798F942
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
+          
+          
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-name">分类</span>
+              
+            </div>
+          
 
-          <div class="site-state-item site-state-categories">
-            <a href="/categories">
-              <span class="site-state-item-count">3</span>
-              <span class="site-state-item-name">分类</span>
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-name">标签</span>
               </a>
-          </div>
-
-          <div class="site-state-item site-state-tags">
-            <a href="/tags">
-              <span class="site-state-item-count">6</span>
-              <span class="site-state-item-name">标签</span>
-              </a>
-          </div>
+            </div>
+          
 
         </nav>
 
@@ -848,7 +858,8 @@ Andrew WeberSingle User LicenseEA7E-855605813A03DD 5E4AD9E6 6C0EEB94 BC99798F942
   </aside>
 
 
-      
+        
+      </div>
     </main>
 
     <footer id="footer" class="footer">
@@ -858,19 +869,9 @@ Andrew WeberSingle User LicenseEA7E-855605813A03DD 5E4AD9E6 6C0EEB94 BC99798F942
   &copy; 
   <span itemprop="copyrightYear">2016</span>
   <span class="with-love">
-    <i class="icon-next-heart fa fa-heart"></i>
+    <i class="fa fa-heart"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">dqiong</span>
-  
-  <span>&nbsp;&nbsp;&nbsp;</span>
-  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
-  </script>
-  <span id="busuanzi_container_site_uv" style='display:none'>
-  本站访客数<span id="busuanzi_value_site_uv"></span>人次
-  </span>
-  <span id="busuanzi_container_page_pv" style='display:none'>
-  本页阅读量<span id="busuanzi_value_page_pv"></span>次
-  </span>
 </div>
 
 <div class="powered-by">
@@ -880,7 +881,7 @@ Andrew WeberSingle User LicenseEA7E-855605813A03DD 5E4AD9E6 6C0EEB94 BC99798F942
 <div class="theme-info">
   主题 -
   <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
-    NexT.Pisces
+    NexT.Muse
   </a>
 </div>
 
@@ -892,85 +893,61 @@ Andrew WeberSingle User LicenseEA7E-855605813A03DD 5E4AD9E6 6C0EEB94 BC99798F942
     <div class="back-to-top"></div>
   </div>
 
+  
+
+
+  
+
+
+
   <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
 
-  
-  
-
-  
-    
-
-  
-    
-  
-
-  <script type="text/javascript">
-    var duoshuoQuery = {short_name:"dqiong"};
-    (function() {
-      var ds = document.createElement('script');
-      ds.type = 'text/javascript';ds.async = true;
-      ds.id = 'duoshuo-script';
-      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-      ds.charset = 'UTF-8';
-      (document.getElementsByTagName('head')[0]
-      || document.getElementsByTagName('body')[0]).appendChild(ds);
-    })();
-  </script>
-    
-     
-
-
-    
-  
-
-  
-  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
-  <script type="text/javascript" src="/js/fancy-box.js?v=0.4.5.2"></script>
-
-
-  <script type="text/javascript" src="/js/helpers.js?v=0.4.5.2"></script>
-  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
-<script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
-
-<script type="text/javascript" src="/js/motion.js?v=0.4.5.2" id="motion.global"></script>
-
-
   <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
   <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
 
-  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
 
-  <script type="text/javascript" src="/js/bootstrap.js"></script>
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
 
-  
-  
-  <script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-      tex2jax: {
-        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
-        processEscapes: true,
-        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-      }
-    });
-  </script>
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
 
-  <script type="text/x-mathjax-config">
-    MathJax.Hub.Queue(function() {
-      var all = MathJax.Hub.getAllJax(), i;
-      for (i=0; i < all.length; i += 1) {
-        all[i].SourceElement().parentNode.className += ' has-jax';
-      }
-    });
-  </script>
 
   
-    <script type="text/javascript" src="http://cdn.staticfile.org/mathjax/2.4.0/MathJax.js"></script>
-    <script type="text/javascript" src="http://cdn.staticfile.org/mathjax/2.4.0/config/TeX-AMS-MML_HTMLorMML.js"></script>
-  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=0.5.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=0.5.0"></script>
+
 
 
   
   
+
+  
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=0.5.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+  
+  
+
+  
+  
+
 
 </body>
 </html>

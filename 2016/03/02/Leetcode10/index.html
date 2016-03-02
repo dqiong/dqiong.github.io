@@ -41,7 +41,7 @@
 <link href="/css/main.css?v=0.5.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="string to integer," />
+  <meta name="keywords" content="递归,通配符匹配," />
 
 
 
@@ -57,16 +57,16 @@
 
 
 
-<meta name="description" content="Implement atoi to convert a string to an integer.">
+<meta name="description" content="通配符匹配.">
 <meta property="og:type" content="article">
-<meta property="og:title" content="LeetCode8:string to integer">
-<meta property="og:url" content="http://qiongxx.com/2016/02/29/string-to-integer/index.html">
+<meta property="og:title" content="Leetcode10:Regular Expression Matching">
+<meta property="og:url" content="http://qiongxx.com/2016/03/02/Leetcode10/index.html">
 <meta property="og:site_name" content="DQiong">
-<meta property="og:description" content="Implement atoi to convert a string to an integer.">
-<meta property="og:updated_time" content="2016-03-01T01:27:22.839Z">
+<meta property="og:description" content="通配符匹配.">
+<meta property="og:updated_time" content="2016-03-02T05:29:39.096Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="LeetCode8:string to integer">
-<meta name="twitter:description" content="Implement atoi to convert a string to an integer.">
+<meta name="twitter:title" content="Leetcode10:Regular Expression Matching">
+<meta name="twitter:description" content="通配符匹配.">
 
 
 
@@ -84,7 +84,7 @@
   };
 </script>
 
-  <title> LeetCode8:string to integer | DQiong </title>
+  <title> Leetcode10:Regular Expression Matching | DQiong </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -214,7 +214,7 @@
             
             
               
-                LeetCode8:string to integer
+                Leetcode10:Regular Expression Matching
               
             
           </h1>
@@ -226,8 +226,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-02-29T16:39:11+08:00" content="2016-02-29">
-              2016-02-29
+            <time itemprop="dateCreated" datetime="2016-03-02T10:29:49+08:00" content="2016-03-02">
+              2016-03-02
             </time>
           </span>
 
@@ -256,8 +256,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/02/29/string-to-integer/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/02/29/string-to-integer/" itemprop="commentsCount"></span>
+                <a href="/2016/03/02/Leetcode10/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/03/02/Leetcode10/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -267,7 +267,7 @@
 
           
           
-             <span id="/2016/02/29/string-to-integer/" class="leancloud_visitors" data-flag-title="LeetCode8:string to integer">
+             <span id="/2016/03/02/Leetcode10/" class="leancloud_visitors" data-flag-title="Leetcode10:Regular Expression Matching">
                &nbsp; | &nbsp;
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -287,7 +287,16 @@
       
 
       
-        <p>Implement atoi to convert a string to an integer.<br><a id="more"></a><br>注意考虑以下情况:<br>“123” : 123<br>“-123” : -123<br>“00123/2” : 123<br>“-123/2”; : -123<br>“-  123/2” :0<br>“-+123/2” :0<br>“10522545459” : 2147483647 越界<br>“2147483647”; : 2147483647 刚好不越界<br>“-21474836480”; : -2147483648;越界<br>“-2147483648”; : -2147483648 刚好不越界<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">atoi</span><span class="params">(<span class="built_in">string</span> str)</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> index=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> length=str.length();</span><br><span class="line">    <span class="keyword">int</span> num=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">bool</span> IsNegative=<span class="literal">false</span>;</span><br><span class="line">    <span class="keyword">if</span>(length==<span class="number">0</span>)</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">while</span>(index&lt;length&amp;&amp;str[index]==<span class="string">' '</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            index++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(str[index]==<span class="string">'-'</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            index++;</span><br><span class="line">            IsNegative=<span class="literal">true</span>;</span><br><span class="line">            <span class="keyword">if</span>(index&gt;=length)</span><br><span class="line">                <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span>  <span class="keyword">if</span>(str[index]==<span class="string">'+'</span>)</span><br><span class="line">            index++;</span><br><span class="line">        <span class="keyword">for</span>(; index&lt;length; index++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(str[index]&lt;<span class="string">'0'</span>||str[index]&gt;<span class="string">'9'</span>)</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">int</span> temp=str[index]-<span class="string">'0'</span>;</span><br><span class="line">                <span class="comment">//cout&lt;&lt;-(INT_MIN%10)&lt;&lt;endl;</span></span><br><span class="line">                <span class="comment">//判断越界,思想：在中间结果执行乘10操作之前，先与最大数除10相比，判断是否溢出。</span></span><br><span class="line">                <span class="keyword">if</span>(!IsNegative&amp;&amp;(num&gt;INT_MAX/<span class="number">10</span>||(num==INT_MAX/<span class="number">10</span>&amp;&amp;temp&gt;INT_MAX%<span class="number">10</span>)))</span><br><span class="line">                    <span class="keyword">return</span> INT_MAX;</span><br><span class="line">                <span class="keyword">else</span> <span class="keyword">if</span>(IsNegative&amp;&amp;(num&gt;-(INT_MIN/<span class="number">10</span>)||(num==-(INT_MIN/<span class="number">10</span>)&amp;&amp;temp&gt;-(INT_MIN%<span class="number">10</span>))))</span><br><span class="line">                    <span class="keyword">return</span> INT_MIN;</span><br><span class="line">                <span class="keyword">else</span></span><br><span class="line">                    num=num*<span class="number">10</span>+temp;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(IsNegative)</span><br><span class="line">            num=-num;</span><br><span class="line">        <span class="keyword">return</span> num;</span><br><span class="line">    &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure></p>
+        <p>通配符匹配.<br><a id="more"></a><br>Implement regular expression matching with support for ‘.’ and ‘<em>‘.<br>‘.’ Matches any single character.<br>‘</em>‘ Matches zero or more of the preceding element.<br>The matching should cover the entire input string (not partial).<br>The function prototype should be:<br>bool isMatch(const char <em>s, const char </em>p)</p>
+<p>Some examples:<br>isMatch(“aa”,”a”) → false<br>isMatch(“aa”,”aa”) → true<br>isMatch(“aaa”,”aa”) → false<br>isMatch(“aa”, “a<em>“) → true<br>isMatch(“aa”, “.</em>“) → true<br>isMatch(“ab”, “.<em>“) → true<br>isMatch(“aab”, “c</em>a*b”) → true</p>
+<p>递归方法:<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">isMatch</span><span class="params">(<span class="built_in">string</span> s, <span class="built_in">string</span> p)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> lengths=s.length();</span><br><span class="line">        <span class="keyword">int</span> lengthp=p.length();</span><br><span class="line">        <span class="keyword">if</span>(lengthp==<span class="number">0</span>) <span class="keyword">return</span> lengths==<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">if</span>(lengthp==<span class="number">1</span>)</span><br><span class="line">            <span class="keyword">return</span> (lengths==<span class="number">1</span>)&amp;&amp;(p[<span class="number">0</span>]==s[<span class="number">0</span>]||p[<span class="number">0</span>]==<span class="string">'.'</span>);</span><br><span class="line">        <span class="comment">//p的下一位是*</span></span><br><span class="line">        <span class="keyword">if</span>(p[<span class="number">1</span>]!=<span class="string">'*'</span>)&#123;</span><br><span class="line">            <span class="keyword">if</span>(lengths==<span class="number">0</span>)</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">            <span class="keyword">return</span>((p[<span class="number">0</span>]==s[<span class="number">0</span>])||(p[<span class="number">0</span>]==<span class="string">'.'</span>))&amp;&amp;isMatch(s.substr(<span class="number">1</span>),p.substr(<span class="number">1</span>));</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//p的下一位不是*</span></span><br><span class="line">        <span class="keyword">else</span>&#123;</span><br><span class="line">            <span class="keyword">while</span>(s.length()&gt;<span class="number">0</span>&amp;&amp;(p[<span class="number">0</span>]==s[<span class="number">0</span>]||(p[<span class="number">0</span>]==<span class="string">'.'</span>)))&#123;</span><br><span class="line">                <span class="keyword">if</span>(isMatch(s,p.substr(<span class="number">2</span>))) <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">                <span class="comment">//if(!s.empty())</span></span><br><span class="line">                  s=s.substr(<span class="number">1</span>);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">return</span> isMatch(s,p.substr(<span class="number">2</span>));</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure></p>
+<p>动态规划方法:<br>假设s与p的开头都加了一个空字符，方便统一规则。<br>DP(i, j)存的是p[0:i-1]与s[0:j-1]的匹配情况。<br>且看下面的图与说明:</p>
+<p>| (i,j)    | (i,j+1)   |<br>| (i+1,j)  | (i+1,j+1)  |</p>
+<ol>
+<li>当p[i] 的下一个不为’*’时，此时只跟上一个状态的p与上一个s对应的DP(i, j)有关<br>因为此时匹配的条件是：A. p[i]与s[j]匹配。B. p[0:i-1]与s[0:j-1]完全匹配，即DP(i, j)==true。<br>则有　<br>DP(i+1, j+1) = DP(i, j) &amp;&amp; Match(p[i], s[j])<br>另外考虑DP(i+1, 0)，这个值对应的是s[-1]与p[i]，s[-1]即假设存在的空字符，明显p[i]与s[-1]是不匹配的<br>因此这时的DP(i+1, 0) = false<br>而要让规划顺利地开始，（特别是当第一个匹配对的就是这种情况时）就需要让DP(0, 0)=true了。</li>
+<li>当p[i]的下一个为’*’时，此时就与围绕这一状态的都有关。<br>　　1) 如果DP(i, j+1)是true时，即上一个pattern就已经完全匹配了当前的s，那当前状态也应该是true，即DP(i+1, j+1)=true<br>　　2) 否则，DP(i, j)与DP(i+1, j)其中有一个为true, 而且p[i]与s[j]匹配，则DP(i+1, j+1)为true，即<br>DP(i+1, j+1) = (DP(i, j) || DP(i+1, j)) &amp;&amp; Match(p[i], s[j])<br>此时考虑DP(i+1, 0)则需要DP(i, 0)的配合，DP(i+1, 0) = DP(i, 0) &amp;&amp; Match(p[i], s[-1])<br>而Match(p[i], s[-1])永远为真，所以DP(i+1, 0) = DP(i, 0)</li>
+</ol>
+<p>具体参考<a href="http://www.cnblogs.com/flowerkzj/p/3726667.html" target="_blank" rel="external">这里</a></p>
 
       
     </div>
@@ -296,7 +305,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/string-to-integer/" rel="tag">#string to integer</a>
+            <a href="/tags/递归/" rel="tag">#递归</a>
+          
+            <a href="/tags/通配符匹配/" rel="tag">#通配符匹配</a>
           
         </div>
       
@@ -305,17 +316,13 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/01/09/sublimeText2_licence/" rel="next" title="一个Sublime Text2 Licence">
-                <i class="fa fa-chevron-left"></i> 一个Sublime Text2 Licence
+              <a href="/2016/03/02/leetcode9/" rel="next" title="Leetcode9:Palindrome Number">
+                <i class="fa fa-chevron-left"></i> Leetcode9:Palindrome Number
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/02/29/dp1/" rel="prev" title="动态规划入门">
-                动态规划入门 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -330,10 +337,10 @@
 
     <div class="post-spread">
       
-        <div class="ds-share flat" data-thread-key="2016/02/29/string-to-integer/"
-     data-title="LeetCode8:string to integer"
+        <div class="ds-share flat" data-thread-key="2016/03/02/Leetcode10/"
+     data-title="Leetcode10:Regular Expression Matching"
      data-content=""
-     data-url="http://qiongxx.com/2016/02/29/string-to-integer/">
+     data-url="http://qiongxx.com/2016/03/02/Leetcode10/">
   <div class="ds-share-inline">
     <ul  class="ds-share-icons-16">
 
@@ -360,8 +367,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/02/29/string-to-integer/"
-           data-title="LeetCode8:string to integer" data-url="http://qiongxx.com/2016/02/29/string-to-integer/">
+      <div class="ds-thread" data-thread-key="2016/03/02/Leetcode10/"
+           data-title="Leetcode10:Regular Expression Matching" data-url="http://qiongxx.com/2016/03/02/Leetcode10/">
       </div>
     
   </div>

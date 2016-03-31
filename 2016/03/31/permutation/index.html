@@ -42,7 +42,7 @@
 <link href="/css/main.css?v=0.5.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="递归,通配符匹配," />
+  <meta name="keywords" content="C++ permutation," />
 
 
 
@@ -58,16 +58,16 @@
 
 
 
-<meta name="description" content="通配符匹配.">
+<meta name="description" content="finds all the permutaitons of n elements, repeated elements are allowed and do not create redundant permutations.产生原始数组元素的全排列,但是要求是非冗余的,也就是说原始数组可以有重复的元素,比如{2,2,2}这个数组,只有一种排列,2这个元素必须按相同处理,只是个数是3">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Leetcode10:Regular Expression Matching">
-<meta property="og:url" content="http://qiongxx.com/2016/03/02/Leetcode10/index.html">
+<meta property="og:title" content="产生一个数组的全排列,非冗余 C++实现">
+<meta property="og:url" content="http://qiongxx.com/2016/03/31/permutation/index.html">
 <meta property="og:site_name" content="DQiong">
-<meta property="og:description" content="通配符匹配.">
-<meta property="og:updated_time" content="2016-03-02T05:29:39.096Z">
+<meta property="og:description" content="finds all the permutaitons of n elements, repeated elements are allowed and do not create redundant permutations.产生原始数组元素的全排列,但是要求是非冗余的,也就是说原始数组可以有重复的元素,比如{2,2,2}这个数组,只有一种排列,2这个元素必须按相同处理,只是个数是3">
+<meta property="og:updated_time" content="2016-03-31T06:01:50.379Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Leetcode10:Regular Expression Matching">
-<meta name="twitter:description" content="通配符匹配.">
+<meta name="twitter:title" content="产生一个数组的全排列,非冗余 C++实现">
+<meta name="twitter:description" content="finds all the permutaitons of n elements, repeated elements are allowed and do not create redundant permutations.产生原始数组元素的全排列,但是要求是非冗余的,也就是说原始数组可以有重复的元素,比如{2,2,2}这个数组,只有一种排列,2这个元素必须按相同处理,只是个数是3">
 
 
 
@@ -85,7 +85,7 @@
   };
 </script>
 
-  <title> Leetcode10:Regular Expression Matching | DQiong </title>
+  <title> 产生一个数组的全排列,非冗余 C++实现 | DQiong </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -234,7 +234,7 @@
             
             
               
-                Leetcode10:Regular Expression Matching
+                产生一个数组的全排列,非冗余 C++实现
               
             
           </h1>
@@ -246,8 +246,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-03-02T10:29:49+08:00" content="2016-03-02">
-              2016-03-02
+            <time itemprop="dateCreated" datetime="2016-03-31T13:59:13+08:00" content="2016-03-31">
+              2016-03-31
             </time>
           </span>
 
@@ -260,8 +260,8 @@
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/LeetCode/" itemprop="url" rel="index">
-                    <span itemprop="name">LeetCode</span>
+                  <a href="/categories/C/" itemprop="url" rel="index">
+                    <span itemprop="name">C++</span>
                   </a>
                 </span>
 
@@ -276,8 +276,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/03/02/Leetcode10/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/03/02/Leetcode10/" itemprop="commentsCount"></span>
+                <a href="/2016/03/31/permutation/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/03/31/permutation/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -287,7 +287,7 @@
 
           
           
-             <span id="/2016/03/02/Leetcode10/" class="leancloud_visitors" data-flag-title="Leetcode10:Regular Expression Matching">
+             <span id="/2016/03/31/permutation/" class="leancloud_visitors" data-flag-title="产生一个数组的全排列,非冗余 C++实现">
                &nbsp; | &nbsp;
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -307,16 +307,7 @@
       
 
       
-        <p>通配符匹配.<br><a id="more"></a><br>Implement regular expression matching with support for ‘.’ and ‘<em>‘.<br>‘.’ Matches any single character.<br>‘</em>‘ Matches zero or more of the preceding element.<br>The matching should cover the entire input string (not partial).<br>The function prototype should be:<br>bool isMatch(const char <em>s, const char </em>p)</p>
-<p>Some examples:<br>isMatch(“aa”,”a”) → false<br>isMatch(“aa”,”aa”) → true<br>isMatch(“aaa”,”aa”) → false<br>isMatch(“aa”, “a<em>“) → true<br>isMatch(“aa”, “.</em>“) → true<br>isMatch(“ab”, “.<em>“) → true<br>isMatch(“aab”, “c</em>a*b”) → true</p>
-<p>递归方法:<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">isMatch</span><span class="params">(<span class="built_in">string</span> s, <span class="built_in">string</span> p)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> lengths=s.length();</span><br><span class="line">        <span class="keyword">int</span> lengthp=p.length();</span><br><span class="line">        <span class="keyword">if</span>(lengthp==<span class="number">0</span>) <span class="keyword">return</span> lengths==<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">if</span>(lengthp==<span class="number">1</span>)</span><br><span class="line">            <span class="keyword">return</span> (lengths==<span class="number">1</span>)&amp;&amp;(p[<span class="number">0</span>]==s[<span class="number">0</span>]||p[<span class="number">0</span>]==<span class="string">'.'</span>);</span><br><span class="line">        <span class="comment">//p的下一位是*</span></span><br><span class="line">        <span class="keyword">if</span>(p[<span class="number">1</span>]!=<span class="string">'*'</span>)&#123;</span><br><span class="line">            <span class="keyword">if</span>(lengths==<span class="number">0</span>)</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">            <span class="keyword">return</span>((p[<span class="number">0</span>]==s[<span class="number">0</span>])||(p[<span class="number">0</span>]==<span class="string">'.'</span>))&amp;&amp;isMatch(s.substr(<span class="number">1</span>),p.substr(<span class="number">1</span>));</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//p的下一位不是*</span></span><br><span class="line">        <span class="keyword">else</span>&#123;</span><br><span class="line">            <span class="keyword">while</span>(s.length()&gt;<span class="number">0</span>&amp;&amp;(p[<span class="number">0</span>]==s[<span class="number">0</span>]||(p[<span class="number">0</span>]==<span class="string">'.'</span>)))&#123;</span><br><span class="line">                <span class="keyword">if</span>(isMatch(s,p.substr(<span class="number">2</span>))) <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">                <span class="comment">//if(!s.empty())</span></span><br><span class="line">                  s=s.substr(<span class="number">1</span>);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">return</span> isMatch(s,p.substr(<span class="number">2</span>));</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure></p>
-<p>动态规划方法:<br>假设s与p的开头都加了一个空字符，方便统一规则。<br>DP(i, j)存的是p[0:i-1]与s[0:j-1]的匹配情况。<br>且看下面的图与说明:</p>
-<p>| (i,j)    | (i,j+1)   |<br>| (i+1,j)  | (i+1,j+1)  |</p>
-<ol>
-<li>当p[i] 的下一个不为’*’时，此时只跟上一个状态的p与上一个s对应的DP(i, j)有关<br>因为此时匹配的条件是：A. p[i]与s[j]匹配。B. p[0:i-1]与s[0:j-1]完全匹配，即DP(i, j)==true。<br>则有　<br>DP(i+1, j+1) = DP(i, j) &amp;&amp; Match(p[i], s[j])<br>另外考虑DP(i+1, 0)，这个值对应的是s[-1]与p[i]，s[-1]即假设存在的空字符，明显p[i]与s[-1]是不匹配的<br>因此这时的DP(i+1, 0) = false<br>而要让规划顺利地开始，（特别是当第一个匹配对的就是这种情况时）就需要让DP(0, 0)=true了。</li>
-<li>当p[i]的下一个为’*’时，此时就与围绕这一状态的都有关。<br>　　1) 如果DP(i, j+1)是true时，即上一个pattern就已经完全匹配了当前的s，那当前状态也应该是true，即DP(i+1, j+1)=true<br>　　2) 否则，DP(i, j)与DP(i+1, j)其中有一个为true, 而且p[i]与s[j]匹配，则DP(i+1, j+1)为true，即<br>DP(i+1, j+1) = (DP(i, j) || DP(i+1, j)) &amp;&amp; Match(p[i], s[j])<br>此时考虑DP(i+1, 0)则需要DP(i, 0)的配合，DP(i+1, 0) = DP(i, 0) &amp;&amp; Match(p[i], s[-1])<br>而Match(p[i], s[-1])永远为真，所以DP(i+1, 0) = DP(i, 0)</li>
-</ol>
-<p>具体参考<a href="http://www.cnblogs.com/flowerkzj/p/3726667.html" target="_blank" rel="external">这里</a></p>
+        <p>finds all the permutaitons of n elements, repeated elements are allowed and do not create redundant permutations.<br>产生原始数组元素的全排列,但是要求是非冗余的,也就是说原始数组可以有重复的元素,比如{2,2,2}这个数组,只有一种排列,2这个元素必须按相同处理,只是个数是3<br><a id="more"></a><br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">generate_all_permutations</span><span class="params">(<span class="keyword">const</span> <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; org_vector, </span><br><span class="line">                               <span class="built_in">vector</span>&lt; <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; &gt;&amp; permutations)</span></span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="keyword">unsigned</span> <span class="keyword">int</span> i;</span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; counts, symbols;</span><br><span class="line">    permutations.clear();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (org_vector.size() == <span class="number">0</span>)</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line"></span><br><span class="line">    counts.clear();</span><br><span class="line">    symbols.clear();</span><br><span class="line"></span><br><span class="line">    <span class="comment">// create vector with symbols and their counts</span></span><br><span class="line">    symbols.push_back(org_vector[<span class="number">0</span>]);</span><br><span class="line">    counts.push_back(<span class="number">1</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (i=<span class="number">1</span>; i&lt;org_vector.size(); i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">unsigned</span> <span class="keyword">int</span> j;</span><br><span class="line">        <span class="keyword">for</span> (j=<span class="number">0</span>; j&lt;counts.size(); j++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span> (org_vector[i] == symbols[j])</span><br><span class="line">            &#123;</span><br><span class="line">                counts[j]++;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (j == counts.size())</span><br><span class="line">        &#123;</span><br><span class="line">            symbols.push_back(org_vector[i]);</span><br><span class="line">            counts.push_back(<span class="number">1</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; next_sym_idx,perm;</span><br><span class="line">    <span class="keyword">int</span> n = org_vector.size(); <span class="comment">// total number of elements</span></span><br><span class="line">    <span class="keyword">int</span> k = counts.size(); <span class="comment">// total number of element types</span></span><br><span class="line">    next_sym_idx.resize(n,<span class="number">0</span>);</span><br><span class="line">    perm.resize(n,-<span class="number">1</span>);</span><br><span class="line">    <span class="keyword">int</span> d=<span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span> (<span class="number">1</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">while</span> (next_sym_idx[d]&lt;k &amp;&amp; counts[next_sym_idx[d]] == <span class="number">0</span>)</span><br><span class="line">            next_sym_idx[d]++;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (next_sym_idx[<span class="number">0</span>]==k)</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (next_sym_idx[d] &gt;= k)</span><br><span class="line">        &#123;</span><br><span class="line">            next_sym_idx[d]=<span class="number">0</span>;</span><br><span class="line">            d--;</span><br><span class="line">            counts[next_sym_idx[d]]++;</span><br><span class="line">            next_sym_idx[d]++;</span><br><span class="line">            <span class="keyword">continue</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// add symbol</span></span><br><span class="line">        perm[d]=symbols[next_sym_idx[d]];</span><br><span class="line">        counts[next_sym_idx[d]]--;</span><br><span class="line">        d++;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (d == n)</span><br><span class="line">        &#123;</span><br><span class="line">            permutations.push_back(perm);</span><br><span class="line">    <span class="comment">//        int k;</span></span><br><span class="line">    <span class="comment">//        for (k=0; k&lt;perm.size(); k++)</span></span><br><span class="line">    <span class="comment">//            cout &lt;&lt; perm[k] &lt;&lt; " ";</span></span><br><span class="line">    <span class="comment">//        cout &lt;&lt; endl;</span></span><br><span class="line"></span><br><span class="line">            d--;</span><br><span class="line">            counts[next_sym_idx[d]]++;</span><br><span class="line">            next_sym_idx[d]++;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -325,9 +316,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/递归/" rel="tag">#递归</a>
-          
-            <a href="/tags/通配符匹配/" rel="tag">#通配符匹配</a>
+            <a href="/tags/C-permutation/" rel="tag">#C++ permutation</a>
           
         </div>
       
@@ -336,17 +325,13 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/03/02/leetcode9/" rel="next" title="Leetcode9:Palindrome Number">
-                <i class="fa fa-chevron-left"></i> Leetcode9:Palindrome Number
+              <a href="/2016/03/14/leetcode12/" rel="next" title="leetcode12:Integer to Roman">
+                <i class="fa fa-chevron-left"></i> leetcode12:Integer to Roman
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/03/14/leetcode11/" rel="prev" title="leetcode11:Container With Most Water">
-                leetcode11:Container With Most Water <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -361,10 +346,10 @@
 
     <div class="post-spread">
       
-        <div class="ds-share flat" data-thread-key="2016/03/02/Leetcode10/"
-     data-title="Leetcode10:Regular Expression Matching"
+        <div class="ds-share flat" data-thread-key="2016/03/31/permutation/"
+     data-title="产生一个数组的全排列,非冗余 C++实现"
      data-content=""
-     data-url="http://qiongxx.com/2016/03/02/Leetcode10/">
+     data-url="http://qiongxx.com/2016/03/31/permutation/">
   <div class="ds-share-inline">
     <ul  class="ds-share-icons-16">
 
@@ -391,8 +376,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/03/02/Leetcode10/"
-           data-title="Leetcode10:Regular Expression Matching" data-url="http://qiongxx.com/2016/03/02/Leetcode10/">
+      <div class="ds-thread" data-thread-key="2016/03/31/permutation/"
+           data-title="产生一个数组的全排列,非冗余 C++实现" data-url="http://qiongxx.com/2016/03/31/permutation/">
       </div>
     
   </div>

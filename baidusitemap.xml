@@ -4,6 +4,26 @@
 
     
   <url>
+    <loc>http://qiongxx.com/2016/03/31/permutation/</loc>
+    <lastmod>2016-03-31T06:01:50.379Z</lastmod>
+    <data>
+        <display>
+        <title>产生一个数组的全排列,非冗余 C++实现</title>
+        <pubTime>2016-03-31T05:59:13.000Z</pubTime>
+        
+        <tag>C++ permutation</tag>
+         
+         
+           
+             
+              <breadCrumb title="C++" url="http://qiongxx.com/categories/C/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://qiongxx.com/2016/03/14/leetcode12/</loc>
     <lastmod>2016-03-14T13:21:02.626Z</lastmod>
     <data>
